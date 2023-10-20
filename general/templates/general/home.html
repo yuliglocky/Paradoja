@@ -1,0 +1,162 @@
+{% include 'general/_navbar.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The paradox</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+        #particles-js{
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0);
+            background-image: url('https://images5.alphacoders.com/130/1305448.jpg'); 
+        }
+    </style> 
+<section  style="height: 800px;">
+  <section>
+        <div id="particles-js">
+          <div class="d-flex align-items-end flex-column mt-5 mb-3">
+            <div class="container mw-70 mt-5 mb-auto p-2">
+                <div class="card text-center text-light fst-italic" 
+                style="background: rgba(255, 255, 255, 0);
+                border: none;
+                font-size: 65px;
+                letter-spacing: 3px;"> 
+                Hola ~ Kon'nichiwa ~ Hello</div>
+                <p class="text-light text-center fs-5">Explora todo lo que tenemos por ofrecerte. Arigatō!</p>
+            </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"> 
+          </script>
+        </div>
+      </section>
+</section>
+
+<script>
+     particlesJS({
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#000000"
+    },
+    "shape": {
+      "type": "star",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.20844356791251797,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+}) </script>  
+          
+</body>
+</html>
+
+{% endblock %}

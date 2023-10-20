@@ -1,0 +1,104 @@
+{% extends 'general/base.html' %} 
+{% load static %}
+{% block content %}
+<style>
+    body {
+        background-color: #000;
+        color: #fff;
+        position: relative;
+    }
+
+    .video-container {
+        position: relative;
+    }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-image {
+            max-width: 350px; /* Set the maximum width */
+            max-height: 350px; /* Set the maximum height */
+            width: auto; /* Maintain the aspect ratio */
+            height: auto; /* Maintain the aspect ratio */
+            display: block; /* Remove any extra spacing */
+            margin: 0 auto; /* Center the image horizontally */
+    }
+</style>
+</head>
+<div class="video-container">
+<div>
+    <video autoplay muted preload="auto" loop width="2000" height="2000">
+      <source src="{% static 'imagen/video4.mp4' %}" type="video/mp4">
+    </video>
+        <div class="overlay">
+        
+            <div class="card">
+                <div class="card-body" style = " background-color: #000;">
+                    <div class="card-body" style="backdrop-filter: blur(10px);">
+                        <h3 class="card-title">{{ producto.nombre }}</h3>
+                        <p class="card-text lh-1">{{ producto.descripcion }}</p>
+                        <p class="card-text lh-1">Categoria: {{ producto.categoria }}</p>
+                        {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" class="product-image" alt="{{ producto.nombre }}" style="height: 10; width: 10;">
+                        {% endif %}
+                        <p class="card-text text-end fs-1">${{ producto.precio }}</p>
+                    </div>
+                    <a type="button" class="btn btn-primary" href="{% url 'comentario' producto.id %}">
+                        + Crear comentario</a>
+                    <a type="button" class="btn btn-outline-success bg-light" href="{% url 'actualizar' producto.id %}">
+                        ✎ Editar Producto</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card mb-3">
+                    <div class="card-body" style = " background-color: #000;">
+                        <a class="card-text lh-3 text-start" href="/vista">
+                            ←Volver a la lista de productos<br />
+                        </a>
+                        <h4 class="card-title text-center">COMENTARIOS<br /></h4>
+                    </div>
+                </div>
+                {% for comentario in comentarios %}
+                <div class="card">
+                    <div class="card-body" style = " background-color: #000;">
+                        <div class="control has-icons-left">
+                        {{ comentario.autor }} 
+                        </div>
+                        <div class="control has-icons-left text-warning">
+                        {{ comentario.ranking }} 
+                        </div>
+                        <div class="control has-icons-left text-secondary">
+                        {{ comentario.texto }} 
+                        </div>
+                        <div class="control has-icons-left">
+                        {{ comentario.fecha_creacion }}
+                        </div>
+                    </div>
+                {% empty %}
+                <li>No hay comentarios disponibles para {{ producto.nombre }}.</li>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+</div>
+</div>         
+</body>
+
+
+
+{% endblock %}

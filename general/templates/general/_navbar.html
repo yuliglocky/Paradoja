@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<nav class="navbar navbar-expand-lg  navbar-static fixed-top" style="background-color: #e2d8d6;">
+  <div class="container">
+    <div class="container fluid">
+    <a class="nav-item mt-0 text-decoration-none text-dark" class="nav-link" href="/">
+      <img src="{% static 'imagen/logo.png' %}" width="50" height="50" alt="...">
+      <span class="fs-1 align-baseline">The Paradox</span>
+    </a>
+      <a class="navbar-brand" href="/">
+      
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/">Inicio
+                      <span class="sr-only">()</span>
+                  </a>
+              </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a href="{% url 'vista' %}" class="nav-link" >Productos</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'crear' %}" class="nav-link">Crear categorias</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'producto' %}" class="nav-link">Crear productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a href="/vista1" class="nav-link">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a href="/login" class="nav-link">Account ? :v </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+           
+        
+</nav>
